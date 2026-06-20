@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Registo | Nexus Marketplace</title>
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+.register-page{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:120px 20px;
+background:
+radial-gradient(circle at top left,#2563eb 0%,transparent 30%),
+radial-gradient(circle at bottom right,#7c3aed 0%,transparent 30%),
+#050816;
+}
+
+.register-card{
+width:100%;
+max-width:500px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+padding:40px;
+border-radius:24px;
+}
+
+.register-card h1{
+text-align:center;
+margin-bottom:10px;
+}
+
+.register-card p{
+text-align:center;
+color:#94a3b8;
+margin-bottom:30px;
+}
+
+.register-form{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.register-form input,
+.register-form select{
+padding:18px;
+border:none;
+border-radius:14px;
+background:#111827;
+color:white;
+font-size:16px;
+}
+
+.register-btn{
+padding:18px;
+border:none;
+border-radius:14px;
+font-weight:700;
+cursor:pointer;
+background:white;
+color:black;
+}
+
+.register-btn:hover{
+opacity:.9;
+}
+
+.login-link{
+text-align:center;
+margin-top:25px;
+}
+
+.login-link a{
+color:#60a5fa;
+text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+
+<nav class="navbar">
+
+<a href="../index.html" class="logo">
+NEXUS MARKETPLACE
+</a>
+
+<ul class="nav-links">
+
+<li><a href="../index.html">Início</a></li>
+<li><a href="imobiliaria.html">Imobiliária</a></li>
+<li><a href="loja.html">Loja</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="register-page">
+
+<div class="register-card">
+
+<h1>Criar Conta</h1>
+
+<p>
+Junte-se ao Nexus Marketplace
+</p>
+
+<form class="register-form" id="registerForm">
+
+<input
+type="text"
+placeholder="Nome Completo"
+required
+>
+
+<input
+type="email"
+placeholder="Email"
+required
+>
+
+<input
+type="tel"
+placeholder="Telefone"
+required
+>
+
+<select required>
+<option value="">Tipo de Conta</option>
+<option>Comprador</option>
+<option>Vendedor</option>
+<option>Empresa</option>
+<option>Imobiliária</option>
+</select>
+
+<input
+type="password"
+placeholder="Palavra-passe"
+required
+>
+
+<input
+type="password"
+placeholder="Confirmar Palavra-passe"
+required
+>
+
+<button
+type="submit"
+class="register-btn"
+>
+Criar Conta
+</button>
+
+</form>
+
+<div class="login-link">
+
+Já tem conta?
+
+<a href="login.html">
+Entrar
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+document
+.getElementById("registerForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+alert("Conta criada com sucesso! (modo demonstração)");
+
+});
+
+</script>
+
+</body>
+</html>
