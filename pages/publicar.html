@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publicar Anúncio | NEXORA</title>
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+<style>
+
+.publish-container{
+max-width:800px;
+margin:120px auto;
+padding:40px;
+background:rgba(255,255,255,.05);
+border-radius:20px;
+}
+
+.publish-form{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.publish-form input,
+.publish-form textarea,
+.publish-form select{
+padding:15px;
+border:none;
+border-radius:10px;
+font-size:16px;
+}
+
+.publish-form button{
+padding:15px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="publish-container">
+
+<h1>Publicar Anúncio</h1>
+
+<form id="publishForm" class="publish-form">
+
+<input type="text" id="titulo" placeholder="Título do anúncio" required>
+
+<select id="categoria" required>
+<option value="">Escolher categoria</option>
+<option>Imobiliária</option>
+<option>Telemóveis</option>
+<option>Tecnologia</option>
+<option>Serviços</option>
+<option>Loja Online</option>
+</select>
+
+<input type="number" id="preco" placeholder="Preço">
+
+<input type="text" id="localizacao" placeholder="Localização">
+
+<input type="tel" id="telefone" placeholder="Telefone">
+
+<textarea
+id="descricao"
+rows="6"
+placeholder="Descrição">
+</textarea>
+
+<input type="file" id="foto">
+
+<button type="submit">
+Publicar Anúncio
+</button>
+
+</form>
+
+</div>
+
+<script>
+
+document
+.getElementById("publishForm")
+.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+const anuncio = {
+
+titulo:
+document.getElementById("titulo").value,
+
+categoria:
+document.getElementById("categoria").value,
+
+preco:
+document.getElementById("preco").value,
+
+localizacao:
+document.getElementById("localizacao").value,
+
+telefone:
+document.getElementById("telefone").value,
+
+descricao:
+document.getElementById("descricao").value
+
+};
+
+localStorage.setItem(
+"ultimoAnuncio",
+JSON.stringify(anuncio)
+);
+
+alert("Anúncio publicado!");
+
+window.location.href="meus-anuncios.html";
+
+});
+
+</script>
+
+</body>
+</html>

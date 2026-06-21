@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Meus Anúncios</title>
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+<body>
+
+<h1>Meus Anúncios</h1>
+
+<div id="resultado"></div>
+
+<script>
+
+const anuncio =
+JSON.parse(
+localStorage.getItem("ultimoAnuncio")
+);
+
+if(anuncio){
+
+document.getElementById("resultado")
+.innerHTML = `
+
+<h2>${anuncio.titulo}</h2>
+
+<p><strong>Categoria:</strong>
+${anuncio.categoria}</p>
+
+<p><strong>Preço:</strong>
+€${anuncio.preco}</p>
+
+<p><strong>Localização:</strong>
+${anuncio.localizacao}</p>
+
+<p><strong>Telefone:</strong>
+${anuncio.telefone}</p>
+
+<p>${anuncio.descricao}</p>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
