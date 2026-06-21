@@ -375,3 +375,24 @@ font-size:1rem;
 }
 
 }
+
+.whatsapp-btn{
+display:inline-block;
+padding:15px 30px;
+background:#25D366;
+color:white;
+font-weight:700;
+border-radius:12px;
+text-decoration:none;
+margin-bottom:30px;
+transition:0.3s;
+}
+
+.whatsapp-btn:hover{
+transform:translateY(-3px);
+}
+
+.contact-actions{
+text-align:center;
+margin:25px 0;
+}

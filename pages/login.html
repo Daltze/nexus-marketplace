@@ -3,113 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Login | Nexus Marketplace</title>
+<title>Login | NEXUS Marketplace</title>
 
 <link rel="stylesheet" href="../assets/css/style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-
 .login-page{
 min-height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
-padding:120px 20px;
-background:
-radial-gradient(circle at top left,#2563eb 0%,transparent 30%),
-radial-gradient(circle at bottom right,#7c3aed 0%,transparent 30%),
-#050816;
+align-items:center;
+background:#050816;
+padding:20px;
 }
 
 .login-card{
 width:100%;
 max-width:450px;
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(20px);
 padding:40px;
-border-radius:24px;
+border-radius:20px;
+background:rgba(255,255,255,.05);
 }
 
 .login-card h1{
 text-align:center;
-margin-bottom:10px;
-}
-
-.login-card p{
-text-align:center;
-color:#94a3b8;
-margin-bottom:30px;
+margin-bottom:20px;
 }
 
 .login-form{
 display:flex;
 flex-direction:column;
-gap:18px;
+gap:15px;
 }
 
 .login-form input{
-padding:18px;
+padding:15px;
 border:none;
-border-radius:14px;
-background:#111827;
-color:white;
-font-size:16px;
+border-radius:10px;
 }
 
 .login-btn{
-padding:18px;
+padding:15px;
 border:none;
-border-radius:14px;
-font-weight:700;
+border-radius:10px;
 cursor:pointer;
-background:white;
-color:black;
+font-weight:bold;
 }
-
-.login-btn:hover{
-opacity:.9;
-}
-
-.register-link{
-text-align:center;
-margin-top:25px;
-}
-
-.register-link a{
-color:#60a5fa;
-text-decoration:none;
-}
-
 </style>
 
 </head>
-
 <body>
-
-<header class="header">
-
-<nav class="navbar">
-
-<a href="../index.html" class="logo">
-NEXUS MARKETPLACE
-</a>
-
-<ul class="nav-links">
-
-<li><a href="../index.html">Início</a></li>
-<li><a href="imobiliaria.html">Imobiliária</a></li>
-<li><a href="loja.html">Loja</a></li>
-
-</ul>
-
-</nav>
-
-</header>
 
 <section class="login-page">
 
@@ -117,20 +60,18 @@ NEXUS MARKETPLACE
 
 <h1>Entrar</h1>
 
-<p>
-Aceda à sua conta Nexus Marketplace
-</p>
-
-<form class="login-form" id="loginForm">
+<form id="loginForm" class="login-form">
 
 <input
 type="email"
+id="email"
 placeholder="Email"
 required
 >
 
 <input
 type="password"
+id="password"
 placeholder="Palavra-passe"
 required
 >
@@ -144,29 +85,34 @@ Entrar
 
 </form>
 
-<div class="register-link">
-
-Ainda não tem conta?
-
-<a href="registo.html">
-Criar Conta
-</a>
-
-</div>
+<p style="text-align:center;margin-top:20px;">
+<a href="registo.html">Criar Conta</a>
+</p>
 
 </div>
 
 </section>
 
-<script>
+<script type="module">
 
-document
-.getElementById("loginForm")
-.addEventListener("submit",function(e){
+import { loginUtilizador } from "../firebase/auth.js";
+
+const form = document.getElementById("loginForm");
+
+form.addEventListener("submit", async (e)=>{
 
 e.preventDefault();
 
-alert("Login efetuado com sucesso (modo demonstração)");
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+const user = await loginUtilizador(email,password);
+
+if(user){
+
+window.location.href="dashboard.html";
+
+}
 
 });
 

@@ -185,15 +185,28 @@ Entrar
 
 </section>
 
-<script>
+<script type="module">
 
-document
-.getElementById("registerForm")
-.addEventListener("submit",function(e){
+import { registarUtilizador } from "../firebase/auth.js";
 
-e.preventDefault();
+const form = document.getElementById("registerForm");
 
-alert("Conta criada com sucesso! (modo demonstração)");
+form.addEventListener("submit", async (e) => {
+
+  e.preventDefault();
+
+  const inputs = form.querySelectorAll("input");
+
+  const email = inputs[1].value;
+  const password = inputs[3].value;
+  const confirmPassword = inputs[4].value;
+
+  if(password !== confirmPassword){
+    alert("As palavras-passe não coincidem.");
+    return;
+  }
+
+  await registarUtilizador(email, password);
 
 });
 
